@@ -33,20 +33,30 @@ getstatusoutput(f"wget {photo1} -O 'photo.jpg'")
 photo = "photo.jpg"
 
 credit ="Alex:)™~" 
-OWNER = int(os.environ.get("OWNER", 7081036509))
+OWNER = int(os.environ.get("OWNER", 8355707251))
 try: 
     ADMINS=[] 
-    for x in (os.environ.get("ADMINS", "7081036509 5702090016").split()):  
+    for x in (os.environ.get("ADMINS", "8355707251 8355707251").split()):  
         ADMINS.append(int(x)) 
 except ValueError: 
         raise Exception("Your Admins list does not contain valid integers.") 
 ADMINS.append(OWNER)
 
-bot = Client("bot",    
-   bot_token="7451364068:AAHuhmL_f1XsLkMOSIIJSeGCIVB7_fqmicM",    
-   api_id= 20346550,    
-   api_hash= "bc79c3bea7a626887bdc0871eecf0327"
+from pyrogram import Client
+
+bot = Client(
+    "bot",
+    bot_token="8404737919:AAGzcWyjFikB1vPtQrcSI-nQh298y0jLSes",
+    api_id=26331872,
+    api_hash="c93589620441707c37c5683a02eea54e"
 )
+
+# Bot को start करने के लिए
+bot.start()
+print("Bot is running...")
+
+# Bot को stop करने के लिए
+# bot.stop()
 
 @bot.on_message(filters.command(["started"]))    
 async def account_login(bot: Client, m: Message):    
@@ -302,3 +312,4 @@ async def account_login(bot: Client, m: Message):
         await m.reply_text(e)
         
 bot.run()
+
